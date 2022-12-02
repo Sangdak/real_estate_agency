@@ -95,8 +95,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-DATABASES = {
-    'default': dj_database_url.parse(
-        os.getenv('DATABASE', 'sqlite:///db.sqlite3')
-    ),
-}
+DATABASES = {'default': dj_database_url.config(default=env.str("DATABASE"))}
+
+# DATABASES = {
+#     'default': dj_database_url.parse(
+#         os.getenv('DATABASE', 'sqlite:///db.sqlite3')
+#     ),
+# }
