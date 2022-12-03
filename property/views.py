@@ -18,6 +18,8 @@ def show_flats(request):
     new_building = request.GET.get('new_building') == '1'
 
     flats = Flat.objects.all()
+    if new_building:
+        flats = flats.filter(new_building=new_building)
     if town:
         flats = flats.filter(town=town)
     if min_price:
