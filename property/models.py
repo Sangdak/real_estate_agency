@@ -13,6 +13,8 @@ class Flat(models.Model):
 
     new_building = models.BooleanField('Новостройка', null=True, blank=True)
 
+    liked_by = models.ManyToManyField(User, verbose_name='Кто лайкнул:', related_name='liked_flats', blank=True)
+
     description = models.TextField('Текст объявления', blank=True)
     price = models.IntegerField('Цена квартиры', db_index=True)
 
