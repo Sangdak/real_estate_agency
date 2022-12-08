@@ -6,7 +6,7 @@ from django.db import migrations
 def add_flats(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
-    for flat in Flat.objects.all():
+    for flat in Flat.objects.all().iterator():
         owner_dep = flat.owner_deprecated
         owner = Owner.objects.filter(owner=owner_dep).first()
         owner.flats.add(flat)

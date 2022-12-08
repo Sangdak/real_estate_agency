@@ -6,7 +6,7 @@ import phonenumbers
 
 def serialise_phonenumber(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for flat in Flat.objects.all():
+    for flat in Flat.objects.all().iterator():
         phone_number = flat.owners_phonenumber
         edited_number = phonenumbers.parse(phone_number, 'RU')
         if phonenumbers.is_valid_number(edited_number):
