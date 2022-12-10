@@ -44,7 +44,7 @@ class Flat(models.Model):
         db_index=True)
 
     has_balcony = models.BooleanField('Наличие балкона', db_index=True, null=True)
-    active = models.BooleanField('Активно-ли объявление', db_index=True)
+    is_active = models.BooleanField('Активно-ли объявление', db_index=True)
     construction_year = models.IntegerField(
         'Год постройки здания',
         null=True,
